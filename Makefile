@@ -1,16 +1,22 @@
 .POSIX:
 
-all: base64-style.org
+LISP       ?= 'sbcl'
+FLAGS_LOAD ?= '--load'
+FLAGS_EVAL ?= '--eval'
+
+all: style.css base64-style.org
 
 .PHONY: clean
 
-base64-style.org: style.css Makefile
-	@rm -f $@
-	@printf "#+OPTIONS: html-style:nil\n" >> $@
-	@printf "#+HTML_HEAD: <style>\n" >> $@
-	@printf "#+HTML_HEAD:   " >> $@
-	@cat $< | tr -d '\n' >> $@
-	@printf "\n#+HTML_HEAD: </style>\n" >> $@
+style.css: style.lisp Makefile
+	$(LISP) $(FLAGS_LOAD) style.lisp   \
+	  $(FLAGS_EVAL) '(generate)'       \
+	  $(FLAGS_EVAL) '(quit)'
+
+base64-style.org: style.lisp Makefile
+	$(LISP) $(FLAGS_LOAD) style.lisp   \
+	  $(FLAGS_EVAL) '(generate)'       \
+	  $(FLAGS_EVAL) '(quit)'
 
 clean:
-	@rm -f base64-style.org
+	@rm -f style.css base64-style.org
