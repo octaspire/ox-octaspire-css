@@ -8,6 +8,9 @@ sources:
     - https://git.sr.ht/~octaspire/ox-octaspire-css
 tasks:
     - setup: |
+        mkdir ~/npm
+        npm config set prefix ~/npm
+        export PATH="$PATH:$HOME/npm/bin"
         npm install -g csslint
         curl -O https://beta.quicklisp.org/quicklisp.lisp
         sbcl --load quicklisp.lisp --eval '(quicklisp-quickstart:install)'
