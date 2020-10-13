@@ -18,7 +18,8 @@ tasks:
         cd ~/ox-octaspire-css
         pwd
         ls
+        make --version
     - build: |
-        make
+        make all
     - check: |
         make test
