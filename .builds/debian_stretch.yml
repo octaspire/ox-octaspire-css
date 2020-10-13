@@ -25,4 +25,6 @@ tasks:
         cd ~/ox-octaspire-css
         pwd
         ls
+        ls ~/npm/bin
+        export PATH="$PATH:$HOME/npm/bin"
         make test
