@@ -14,7 +14,7 @@ tasks:
         export PATH="$PATH:$HOME/npm/bin"
         npm install -g csslint
         curl -O https://beta.quicklisp.org/quicklisp.lisp
-        sbcl --load quicklisp.lisp --eval '(quicklisp-quickstart:install)' --eval '(quit)'
+        sbcl --load quicklisp.lisp --eval '(quicklisp-quickstart:install)' --eval '(ql:add-to-init-file)' --eval '(quit)'
         make --version
     - generate: |
         cd ~/ox-octaspire-css
