@@ -1,0 +1,18 @@
+image: debian/bullseye
+packages:
+    - build-essential
+    - curl
+    - sbcl
+    - npm
+sources:
+    - https://git.sr.ht/~octaspire/ox-octaspire-css
+tasks:
+    - setup: |
+        npm install -g csslint
+        curl -O https://beta.quicklisp.org/quicklisp.lisp
+        sbcl --load quicklisp.lisp --eval '(quicklisp-quickstart:install)'
+        cd ox-octaspire-css
+    - build: |
+        make
+    - check: |
+        make test
