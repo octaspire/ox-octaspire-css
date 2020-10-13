@@ -28,39 +28,39 @@
                             :font-family "'IBM Plex Mono'"
                             :src "external/IBM/Plex/TrueType/Mono/IBMPlexMono-Regular.ttf")
                           '(body
-                            :font-family "'IBM Plex Sans'" "sans-serif"
                             :background-color "#ffffea"
-                            :color "black")
+                            :color "black"
+                            :font-family "'IBM Plex Sans'" "sans-serif")
                           '(.toc-toggle-button
                             :font-family "'IBM Plex Mono'" monospace
-                            :margin 0px)
+                            :margin 0)
                           '((:or nav \#footnotes \#postamble \#preamble)
-                            :max-width 60ch
-                            :line-height 1.4
                             :display block
+                            :line-height 1.4
                             :margin-left auto
-                            :margin-right auto)
+                            :margin-right auto
+                            :max-width 60ch)
                           '(nav
-                            :border-top 0.25em solid black
-                            :border-bottom 0.25em solid black)
-                          '(\#footnotes
-                            :margin-top 2em
+                            :border-bottom 0.25em solid black
                             :border-top 0.25em solid black)
+                          '(\#footnotes
+                            :border-top 0.25em solid black
+                            :margin-top 2em)
                           '(.footdef
                             :width 100%)
                           '(.footnum
-                            :width 3em
                             :float left
                             :font-size 125%
-                            :font-weight bold)
+                            :font-weight bold
+                            :width 3em)
                           '(.footpara
                             :margin-right 3em)
                           '(\#postamble
-                            :color gray
                             :border-top 0.3125em solid black
-                            :padding-top 0.125em
+                            :color gray
                             :font-size 0.75em
-                            :max-width 105em)
+                            :max-width 105em
+                            :padding-top 0.125em)
                           '(\#table-of-contents
                             :display none)
                           '(\#text-table-of-contents
@@ -71,46 +71,46 @@
                             :text-align justify
                             :text-justify inter-word)
                           '((:or body .outline-1 .outline-2 .outline-3 .outline-4)
-                            :max-width 60ch
+                            :display block
                             :line-height 1.4
-                            :display block
                             :margin-left auto
-                            :margin-right auto)
+                            :margin-right auto
+                            :max-width 60ch)
                           '(video
-                            :max-width 60ch
+                            :border 0.125em solid black
                             :height auto
-                            :border 0.125em solid black)
+                            :max-width 60ch)
                           '(p
-                            :text-align justify
-                            :text-justify inter-word
-                            :display block
-                            :margin-left auto
-                            :margin-right auto)
-                          '(img
-                            :max-width 100%
-                            :display block
-                            :width auto
-                            :height auto
-                            :margin-left auto
-                            :margin-right auto)
-                          '(figure
-                            :max-width 100%
                             :display block
                             :margin-left auto
                             :margin-right auto
-                            :width auto
-                            :height auto)
+                            :text-align justify
+                            :text-justify inter-word)
+                          '(img
+                            :display block
+                            :height auto
+                            :margin-left auto
+                            :margin-right auto
+                            :max-width 100%
+                            :width auto)
+                          '(figure
+                            :display block
+                            :height auto
+                            :margin-left auto
+                            :margin-right auto
+                            :max-width 100%
+                            :width auto)
                           '(a
                             :text-decoration none)
                           '(pre
                             :overflow-x auto)
                           '((:and \.src |::before|)
-                            :border 2px solid black
                             :background-color \#aeeeee
+                            :border 2px solid black
                             :display block
                             :font-size 0.75em
-                            :padding 0.125em
                             :margin-bottom 0.5em
+                            :padding 0.125em
                             :text-align center)
                           '((:and \.src-c |::before|)
                             :content "'C'")
@@ -155,24 +155,24 @@
                           '(.example
                             :padding-top 0.5em)
                           '(pre
-                            :padding-top 0px
+                            :margin-top 0
                             :padding-bottom 0.5em
-                            :margin-top 0px)
+                            :padding-top 0)
                           '((:or code pre)
-                            :font-family "'IBM Plex Mono'" monospace
-                            :background-color \#efefcc)
+                            :background-color \#efefcc
+                            :font-family "'IBM Plex Mono'" monospace)
                           '(aside
-                            :margin-top 1em
+                            :border 0.125em dashed black
                             :margin-bottom 1em
-                            :padding 1em
-                            :border 0.125em dashed black)
+                            :margin-top 1em
+                            :padding 1em)
                           '(table
-                            :margin-top 1em
+                            :border-collapse collapse
+                            :line-height 1.4
                             :margin-bottom 1em
+                            :margin-top 1em
                             :max-width 100%
                             :min-width 100%
-                            :line-height 1.4
-                            :border-collapse collapse
                             :text-align justify
                             :text-justify inter-word)
                           '(th
@@ -180,29 +180,29 @@
                           '((:or tr td th)
                             :border 0.125em solid black)
                           '(.org-src-container
-                            :padding-top 0px
-                            :margin-top 0px)
+                            :margin-top 0
+                            :padding-top 0)
                           '(.src-copy-button
                             :font-family "'IBM Plex Mono'" monospace
-                            :margin 0px)
+                            :margin 0)
                           '(.todo
                             :color darksalmon
-                            :font-weight bold
-                            :font-family "'IBM Plex Mono'" monospace)
+                            :font-family "'IBM Plex Mono'" monospace
+                            :font-weight bold)
                           '(.done
                             :color darkgreen
-                            :font-weight bold
-                            :font-family "'IBM Plex Mono'" monospace)
+                            :font-family "'IBM Plex Mono'" monospace
+                            :font-weight bold)
                           '(:media "(max-width: 640px)"
                             ((:or nav \#footnotes \#postamble \#preamble)
-                             :max-width 40ch
-                             :margin-left 10px)
+                             :margin-left 10px
+                             :max-width 40ch)
                             ((:or body .outline-1 .outline-2 .outline-3 .outline-4)
-                             :max-width 40ch
-                             :margin-left 10px)
+                             :margin-left 10px
+                             :max-width 40ch)
                             (video
-                             :max-width 40ch
-                             :margin-left 10px))))
+                             :margin-left 10px
+                             :max-width 40ch))))
 
 (lass:define-special-property src (&rest files)
   (list (lass:make-property "src" (format nil "url(data:font/ttf;base64,~A) format('truetype')" (file-as-base64 (car files))))))
