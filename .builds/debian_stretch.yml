@@ -15,13 +15,14 @@ tasks:
         npm install -g csslint
         curl -O https://beta.quicklisp.org/quicklisp.lisp
         sbcl --load quicklisp.lisp --eval '(quicklisp-quickstart:install)' --eval '(quit)'
+        make --version
+    - generate: |
         cd ~/ox-octaspire-css
         pwd
         ls
-        make --version
-    - generate: |
+        make
+    - check: |
+        cd ~/ox-octaspire-css
         pwd
         ls
-        make -f Makefile style.css
-    - check: |
-        make -f Makefile test
+        make test
