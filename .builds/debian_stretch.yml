@@ -19,7 +19,9 @@ tasks:
         pwd
         ls
         make --version
-    - build: |
-        make all
+    - generate: |
+        pwd
+        ls
+        make -f Makefile style.css
     - check: |
-        make test
+        make -f Makefile test
