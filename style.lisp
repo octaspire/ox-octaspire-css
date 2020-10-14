@@ -195,14 +195,14 @@
                             :font-weight bold)
                           '(:media "(max-width: 640px)"
                             ((:or nav \#footnotes \#postamble \#preamble)
-                             :margin-left 10px
-                             :max-width 40ch)
+                             :padding-left 10px
+                             :max-width 50ch)
                             ((:or body .outline-1 .outline-2 .outline-3 .outline-4)
-                             :margin-left 10px
-                             :max-width 40ch)
+                             :padding-left 10px
+                             :max-width 50ch)
                             (video
-                             :margin-left 10px
-                             :max-width 40ch))))
+                             :padding-left 10px
+                             :max-width 50ch))))
 
 (lass:define-special-property src (&rest files)
   (list (lass:make-property "src" (format nil "url(data:font/ttf;base64,~A) format('truetype')" (file-as-base64 (car files))))))
