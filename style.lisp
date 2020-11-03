@@ -17,6 +17,12 @@
 (defun write-org-postfix (stream)
   (format stream "~%#+HTML_HEAD: </style>"))
 
+(if (string= "WIDE" (uiop:getenv "OCTASPIRE_CSS_WIDTH"))
+    (defparameter *maxw* '120ch)
+    (defparameter *maxw* '60ch))
+
+(defparameter *maxw-small* '50ch)
+
 
 (defun file-as-base64 (path)
   (cl-base64:usb8-array-to-base64-string (alexandria:read-file-into-byte-vector path)))
@@ -34,12 +40,12 @@
                           '(.toc-toggle-button
                             :font-family "'IBM Plex Mono'" monospace
                             :margin 0)
-                          '((:or nav \#footnotes \#postamble \#preamble)
+                          `((:or nav \#footnotes \#postamble \#preamble)
                             :display block
                             :line-height 1.4
                             :margin-left auto
                             :margin-right auto
-                            :max-width 60ch)
+                            :max-width ,*maxw*)
                           '(nav
                             :border-bottom 0.25em solid black
                             :border-top 0.25em solid black)
@@ -70,16 +76,37 @@
                             :margin-top 0.5em
                             :text-align justify
                             :text-justify inter-word)
-                          '((:or body .outline-1 .outline-2 .outline-3 .outline-4)
+                          `((:or body .outline-1 .outline-2 .outline-3 .outline-4)
                             :display block
                             :line-height 1.4
                             :margin-left auto
                             :margin-right auto
-                            :max-width 60ch)
-                          '(video
+                            :max-width ,*maxw*)
+                          `(video
                             :border 0.125em solid black
                             :height auto
-                            :max-width 60ch)
+                            :max-width ,*maxw*)
+                          '(blockquote
+                            :background-color \#aeeeee
+                            :border-left solid 0.5em black
+                            :padding 0.25em)
+                          '("blockquote p"
+                            :display inline
+                            :padding 0.25em
+                            :font-size 1.25em)
+                          '((:and blockquote |::before|)
+                            :content open-quote
+                            :color black
+                            :font-size 4em
+                            :vertical-align -0.3em)
+                          '(\.title
+                            :padding 0
+                            :margin 0)
+                          '(\.subtitle
+                            :font-size 1.25em
+                            :font-weight bold
+                            :padding 0
+                            :margin 0)
                           '(p
                             :display block
                             :margin-left auto
@@ -193,16 +220,16 @@
                             :color darkgreen
                             :font-family "'IBM Plex Mono'" monospace
                             :font-weight bold)
-                          '(:media "(max-width: 640px)"
-                            ((:or nav \#footnotes \#postamble \#preamble)
-                             :max-width 50ch
-                             :padding-left 10px)
-                            ((:or body .outline-1 .outline-2 .outline-3 .outline-4)
-                             :max-width 50ch
-                             :padding-left 10px)
-                            (video
-                             :max-width 50ch
-                             :padding-left 10px))))
+                          `(:media "(max-width: 640px)"
+                                   ((:or nav \#footnotes \#postamble \#preamble)
+                                    :max-width ,*maxw-small*
+                                    :padding-left 10px)
+                                   ((:or body .outline-1 .outline-2 .outline-3 .outline-4)
+                                    :max-width ,*maxw-small*
+                                    :padding-left 10px)
+                                   (video
+                                    :max-width ,*maxw-small*
+                                    :padding-left 10px))))
 
 (lass:define-special-property src (&rest files)
   (list (lass:make-property "src" (format nil "url(data:font/ttf;base64,~A) format('truetype')" (file-as-base64 (car files))))))
