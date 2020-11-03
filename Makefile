@@ -3,6 +3,7 @@
 LISP       ?= 'sbcl'
 FLAGS_LOAD ?= '--load'
 FLAGS_EVAL ?= '--eval'
+CSSLINT    ?= 'csslint'
 
 all: style.css base64-style.org
 
@@ -22,4 +23,4 @@ clean:
 	@rm -f style.css base64-style.org
 
 test: style.css
-	csslint --ignore=ids,bulletproof-font-face style.css
+	$(CSSLINT) --ignore=ids,bulletproof-font-face style.css
