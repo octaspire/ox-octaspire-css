@@ -10,9 +10,9 @@ tasks:
     - setup: |
         cd
         mkdir ~/npm
+        sudo npm install -g npm@latest
         npm config set prefix ~/npm
         export PATH="$PATH:$HOME/npm/bin"
-        sudo npm install -g npm@7.0.7
         npm install -g csslint
         curl -O https://beta.quicklisp.org/quicklisp.lisp
         sbcl --load quicklisp.lisp --eval '(quicklisp-quickstart:install)' --eval '(ql-util:without-prompting (ql:add-to-init-file))' --eval '(quit)'
