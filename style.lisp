@@ -92,21 +92,21 @@
                             :padding 0.25em)
                           '("blockquote p"
                             :display inline
-                            :padding 0.25em
-                            :font-size 1.25em)
+                            :font-size 1.25em
+                            :padding 0.25em)
                           '((:and blockquote |::before|)
-                            :content open-quote
                             :color black
+                            :content open-quote
                             :font-size 4em
                             :vertical-align -0.3em)
                           '(\.title
-                            :padding 0
-                            :margin 0)
+                            :margin 0
+                            :padding 0)
                           '(\.subtitle
                             :font-size 1.25em
                             :font-weight bold
-                            :padding 0
-                            :margin 0)
+                            :margin 0
+                            :padding 0)
                           '(p
                             :display block
                             :margin-left auto
