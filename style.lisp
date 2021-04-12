@@ -89,16 +89,21 @@
                           '(blockquote
                             :background-color \#aeeeee
                             :border-left solid 0.25em black
-                            :padding 0.25em)
+                            :margin 0
+                            :padding-top 0.25em)
                           '("blockquote p"
                             :font-size 1.0em
-                            :padding 0.125em 1em 0.125em 1em)
+                            :margin-bottom 0.125em
+                            :padding-left 2em
+                            :padding-right 2em)
                           '((:and blockquote |::before|)
-                            :float left
                             :color black
                             :content open-quote
-                            :font-size 2em
-                            :vertical-align -0.3em)
+                            :float left
+                            :font-size 3em)
+                          '((:and blockquote |::after|)
+                            :content close-quote
+                            :visibility hidden)
                           '(\.title
                             :margin 0
                             :padding 0)
