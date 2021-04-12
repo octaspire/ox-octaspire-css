@@ -125,11 +125,14 @@
                             :margin-right auto
                             :max-width 100%
                             :width auto)
+                          '(figcaption
+                            :font-size 0.75em
+                            :margin-top 0.5em
+                            :text-align center)
                           '(figure
                             :display block
                             :height auto
-                            :margin-left auto
-                            :margin-right auto
+                            :margin 0.25em auto 0.25em auto
                             :max-width 100%
                             :width auto)
                           '(a
