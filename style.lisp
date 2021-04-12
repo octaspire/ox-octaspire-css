@@ -88,16 +88,16 @@
                             :max-width ,*maxw*)
                           '(blockquote
                             :background-color \#aeeeee
-                            :border-left solid 0.5em black
+                            :border-left solid 0.25em black
                             :padding 0.25em)
                           '("blockquote p"
-                            :display inline
-                            :font-size 1.25em
-                            :padding 0.25em)
+                            :font-size 1.0em
+                            :padding 0.125em 1em 0.125em 1em)
                           '((:and blockquote |::before|)
+                            :float left
                             :color black
                             :content open-quote
-                            :font-size 4em
+                            :font-size 2em
                             :vertical-align -0.3em)
                           '(\.title
                             :margin 0
